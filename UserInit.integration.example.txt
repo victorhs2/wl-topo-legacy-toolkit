@@ -1,0 +1,21 @@
+Recommended permanent integration in:
+
+C:\Users\Default\Scripts\UserInit.cmd
+
+Keep the vendor order and insert only the custom mapping call:
+
+    call :ServerActions
+    call "C:\WaveLight\Custom\MapH.cmd"
+    call :UserSetup
+
+Temporary credential-bootstrap integration, only when required:
+
+    call :ServerActions
+    call "C:\WaveLight\Custom\BootstrapNetworkCredential.local.cmd"
+    call "C:\WaveLight\Custom\MapH.cmd"
+    call :UserSetup
+
+After the LASIK credential has been stored and validated, remove the
+BootstrapNetworkCredential.local.cmd call and delete that temporary file.
+
+Do not edit the vendor WLconnectDrvW.cmd as part of this customization.
